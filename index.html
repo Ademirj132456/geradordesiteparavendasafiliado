@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muralzão - Gerador de Coleção Estilo Profissional</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <header class="tool-header">
+            <h1>Gerador de Coleção Muralzão ✨</h1>
+            <p>Crie sua página de achadinhos com visual profissional para Google Sites!</p>
+        </header>
+
+        <section class="step">
+            <h2>Passo 1: Informações da Página</h2>
+            <div class="form-group">
+                <label for="pageTitleInput">Título Principal:</label>
+                <input type="text" id="pageTitleInput" placeholder="Ex: Achados do Marombeiro! 💪">
+            </div>
+            <div class="form-group">
+                <label for="pageDescInput">Subtítulo (Descrição curta):</label>
+                <input type="text" id="pageDescInput" placeholder="Ex: Sua seleção Monstra dos melhores achadinhos fitness!">
+            </div>
+             <div class="form-group">
+                <label for="brandColorInput">Cor Principal (Botões/Números):</label>
+                <div class="inline-group color-picker-group">
+                    <input type="color" id="brandColorPicker" value="#F58220"> <!-- Color Picker -->
+                    <input type="text" id="brandColorInput" value="#F58220" placeholder="#F58220">
+                </div>
+                 <small>Escolha ou digite o código HEX (Ex: #F58220 para o laranja padrão).</small>
+            </div>
+        </section>
+
+        <section class="step">
+            <h2>Passo 2: Quantos Produtos?</h2>
+            <div class="form-group inline-group">
+                <label for="productCountInput">Número de Produtos:</label>
+                <input type="number" id="productCountInput" min="1" max="50" value="5"> <!-- Default 5 como no exemplo -->
+                <button id="generateFieldsButton" class="button primary-button">Gerar Campos</button>
+            </div>
+        </section>
+
+        <section class="step">
+            <h2>Passo 3: Detalhes dos Produtos</h2>
+            <div id="product-fields-container">
+                <p class="placeholder-text">Clique em "Gerar Campos" acima.</p>
+            </div>
+        </section>
+
+        <section class="step generate-section">
+            <h2>Passo 4: Gerar e Copiar!</h2>
+            <button id="generateCodeButton" class="button generate-button" disabled>🚀 Gerar Código para Google Sites 🚀</button>
+        </section>
+
+        <section class="step output-section" id="outputSection" style="display: none;">
+            <h2>Passo 5: Seu Código para Incorporar!</h2>
+            <p>Copie TODO o código abaixo e cole na opção "Incorporar Código" do seu Google Sites.</p>
+            <textarea id="generatedCodeOutput" readonly rows="15" placeholder="Seu código aparecerá aqui..."></textarea>
+            <button id="copyCodeButton" class="button copy-button" disabled>📋 Copiar Código</button>
+            <div id="copyFeedback" class="copy-feedback"></div>
+        </section>
+
+         <footer class="tool-footer">
+            <p>Ferramenta Geradora Muralzão</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
