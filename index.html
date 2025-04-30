@@ -3,63 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muralzão - Gerador de Coleção Estilo Profissional</title>
+    <title>Muralzão - Gerador de Coleção PRO</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Ícone opcional para a aba -->
+    <!-- <link rel="icon" href="URL_FAVICON.png" type="image/png"> -->
 </head>
 <body>
     <div class="main-container">
         <header class="tool-header">
             <h1>Gerador de Coleção Muralzão ✨</h1>
-            <p>Crie sua página de achadinhos com visual profissional para Google Sites!</p>
+            <p>Crie sua página de achadinhos profissional para Google Sites!</p>
         </header>
 
         <section class="step">
-            <h2>Passo 1: Informações da Página</h2>
+            <h2>Passo 1: Personalize Sua Página</h2>
             <div class="form-group">
-                <label for="pageTitleInput">Título Principal:</label>
+                <label for="pageTitleInput">Título Principal (Emojis são bem-vindos!):</label>
                 <input type="text" id="pageTitleInput" placeholder="Ex: Achados do Marombeiro! 💪">
             </div>
             <div class="form-group">
                 <label for="pageDescInput">Subtítulo (Descrição curta):</label>
-                <input type="text" id="pageDescInput" placeholder="Ex: Sua seleção Monstra dos melhores achadinhos fitness!">
+                <input type="text" id="pageDescInput" placeholder="Ex: Sua seleção Monstra dos melhores achadinhos fitness! 😉">
             </div>
-             <div class="form-group">
-                <label for="brandColorInput">Cor Principal (Botões/Números):</label>
+            <div class="form-group">
+                <label for="brandColorInput">Cor Principal (Botões, Números, Destaques):</label>
                 <div class="inline-group color-picker-group">
-                    <input type="color" id="brandColorPicker" value="#F58220"> <!-- Color Picker -->
-                    <input type="text" id="brandColorInput" value="#F58220" placeholder="#F58220">
+                    <input type="color" id="brandColorPicker" value="#F58220" title="Selecionar Cor">
+                    <input type="text" id="brandColorInput" value="#F58220" placeholder="#RRGGBB">
                 </div>
-                 <small>Escolha ou digite o código HEX (Ex: #F58220 para o laranja padrão).</small>
+                <small>Clique no quadrado para escolher visualmente ou digite o código HEX.</small>
             </div>
         </section>
 
         <section class="step">
-            <h2>Passo 2: Quantos Produtos?</h2>
-            <div class="form-group inline-group">
+            <h2>Passo 2: Quantos Produtos Adicionar?</h2>
+            <div class="form-group inline-group product-count-group">
                 <label for="productCountInput">Número de Produtos:</label>
-                <input type="number" id="productCountInput" min="1" max="50" value="5"> <!-- Default 5 como no exemplo -->
-                <button id="generateFieldsButton" class="button primary-button">Gerar Campos</button>
+                <input type="number" id="productCountInput" min="0" max="50" value="0"> <!-- Default 0 -->
+                <button id="generateFieldsButton" class="button primary-button">Gerar Campos de Produto</button>
             </div>
+            <small>Digite a quantidade e clique no botão para criar os campos abaixo.</small>
         </section>
 
         <section class="step">
-            <h2>Passo 3: Detalhes dos Produtos</h2>
+            <h2>Passo 3: Preencha os Detalhes dos Produtos</h2>
             <div id="product-fields-container">
-                <p class="placeholder-text">Clique em "Gerar Campos" acima.</p>
+                <p class="placeholder-text">Defina o número de produtos acima e clique em "Gerar Campos".</p>
             </div>
         </section>
 
-        <section class="step generate-section">
-            <h2>Passo 4: Gerar e Copiar!</h2>
-            <button id="generateCodeButton" class="button generate-button" disabled>🚀 Gerar Código para Google Sites 🚀</button>
+        <section class="step generate-preview-section">
+             <h2>Passo 4: Visualize e Gere o Código</h2>
+             <div class="button-group">
+                <button id="previewButton" class="button secondary-button" disabled>👁️ Visualizar Prévia</button>
+                <button id="generateCodeButton" class="button generate-button" disabled>🚀 Gerar Código Final 🚀</button>
+             </div>
         </section>
 
         <section class="step output-section" id="outputSection" style="display: none;">
-            <h2>Passo 5: Seu Código para Incorporar!</h2>
-            <p>Copie TODO o código abaixo e cole na opção "Incorporar Código" do seu Google Sites.</p>
+            <h2>Passo 5: Copie e Cole no Google Sites!</h2>
+            <p>Seu código está pronto! Copie TODO o conteúdo abaixo e cole na opção "Incorporar Código" (< >) do seu editor do Google Sites.</p>
             <textarea id="generatedCodeOutput" readonly rows="15" placeholder="Seu código aparecerá aqui..."></textarea>
             <button id="copyCodeButton" class="button copy-button" disabled>📋 Copiar Código</button>
             <div id="copyFeedback" class="copy-feedback"></div>
@@ -68,7 +74,19 @@
          <footer class="tool-footer">
             <p>Ferramenta Geradora Muralzão</p>
         </footer>
+    </div>
 
+    <!-- Modal de Visualização Prévia -->
+    <div id="previewModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Visualização Prévia</h2>
+                <button id="closePreviewButton" class="modal-close-button">×</button>
+            </div>
+            <div class="modal-body">
+                <iframe id="previewIframe" srcdoc="<html><head><title>Preview</title></head><body>Carregando prévia...</body></html>"></iframe>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
