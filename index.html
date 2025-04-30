@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muralzão - Gerador de Coleção PRO</title>
+    <title>Muralzão - Gerador de Coleção PRO V2</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Ícone opcional para a aba -->
-    <!-- <link rel="icon" href="URL_FAVICON.png" type="image/png"> -->
 </head>
 <body>
     <div class="main-container">
@@ -21,20 +19,35 @@
         <section class="step">
             <h2>Passo 1: Personalize Sua Página</h2>
             <div class="form-group">
-                <label for="pageTitleInput">Título Principal (Emojis são bem-vindos!):</label>
-                <input type="text" id="pageTitleInput" placeholder="Ex: Achados do Marombeiro! 💪">
+                <label for="pageTitleInput">Título Principal:</label>
+                <div class="input-with-emoji">
+                    <input type="text" id="pageTitleInput" placeholder="Ex: Achados do Marombeiro! 💪">
+                    <div class="emoji-palette" data-target-input="pageTitleInput">
+                        <span>💪</span> <span>🔥</span> <span>✨</span> <span>🚀</span> <span>✅</span> <span>👇</span> <span>🛒</span> <span>💰</span>
+                    </div>
+                </div>
+                 <small>Clique nos emojis para adicionar ao título.</small>
             </div>
             <div class="form-group">
                 <label for="pageDescInput">Subtítulo (Descrição curta):</label>
-                <input type="text" id="pageDescInput" placeholder="Ex: Sua seleção Monstra dos melhores achadinhos fitness! 😉">
+                 <div class="input-with-emoji">
+                    <input type="text" id="pageDescInput" placeholder="Ex: Sua seleção Monstra dos melhores achadinhos! 😉">
+                     <div class="emoji-palette" data-target-input="pageDescInput">
+                        <span>😉</span> <span>👀</span> <span>💯</span> <span>🎉</span> <span>💡</span> <span>⭐</span> <span>🛍️</span> <span>✅</span>
+                    </div>
+                </div>
+                 <small>Clique nos emojis para adicionar ao subtítulo.</small>
             </div>
-            <div class="form-group">
+             <div class="form-group">
                 <label for="brandColorInput">Cor Principal (Botões, Números, Destaques):</label>
                 <div class="inline-group color-picker-group">
                     <input type="color" id="brandColorPicker" value="#F58220" title="Selecionar Cor">
                     <input type="text" id="brandColorInput" value="#F58220" placeholder="#RRGGBB">
                 </div>
-                <small>Clique no quadrado para escolher visualmente ou digite o código HEX.</small>
+                 <small>Clique no quadrado ou digite o HEX. Sugestões:</small>
+                 <div id="color-suggestions" class="color-suggestions">
+                     <!-- Exemplos serão adicionados pelo JS -->
+                 </div>
             </div>
         </section>
 
@@ -42,16 +55,15 @@
             <h2>Passo 2: Quantos Produtos Adicionar?</h2>
             <div class="form-group inline-group product-count-group">
                 <label for="productCountInput">Número de Produtos:</label>
-                <input type="number" id="productCountInput" min="0" max="50" value="0"> <!-- Default 0 -->
-                <button id="generateFieldsButton" class="button primary-button">Gerar Campos de Produto</button>
+                <input type="number" id="productCountInput" min="0" max="50" value="0">
+                <button id="generateFieldsButton" class="button primary-button">Gerar Campos</button>
             </div>
-            <small>Digite a quantidade e clique no botão para criar os campos abaixo.</small>
         </section>
 
         <section class="step">
             <h2>Passo 3: Preencha os Detalhes dos Produtos</h2>
             <div id="product-fields-container">
-                <p class="placeholder-text">Defina o número de produtos acima e clique em "Gerar Campos".</p>
+                <p class="placeholder-text">Defina o número > 0 e clique em "Gerar Campos".</p>
             </div>
         </section>
 
@@ -65,7 +77,7 @@
 
         <section class="step output-section" id="outputSection" style="display: none;">
             <h2>Passo 5: Copie e Cole no Google Sites!</h2>
-            <p>Seu código está pronto! Copie TODO o conteúdo abaixo e cole na opção "Incorporar Código" (< >) do seu editor do Google Sites.</p>
+            <p>Seu código está pronto! Copie TODO o conteúdo abaixo e cole no "Incorporar Código" (< >) do Google Sites.</p>
             <textarea id="generatedCodeOutput" readonly rows="15" placeholder="Seu código aparecerá aqui..."></textarea>
             <button id="copyCodeButton" class="button copy-button" disabled>📋 Copiar Código</button>
             <div id="copyFeedback" class="copy-feedback"></div>
@@ -76,15 +88,18 @@
         </footer>
     </div>
 
-    <!-- Modal de Visualização Prévia -->
+    <!-- Modal de Visualização Prévia (Maior) -->
     <div id="previewModal" class="modal-overlay" style="display: none;">
-        <div class="modal-content">
+        <div class="modal-content large"> <!-- Adicionada classe 'large' -->
             <div class="modal-header">
                 <h2>Visualização Prévia</h2>
-                <button id="closePreviewButton" class="modal-close-button">×</button>
+                <div> <!-- Container para botões -->
+                    <button id="openPreviewNewTabButton" class="button secondary-button small-button" title="Abrir em nova aba (pode ser bloqueado)">Nova Aba ↗</button>
+                    <button id="closePreviewButton" class="modal-close-button" aria-label="Fechar pré-visualização">×</button>
+                </div>
             </div>
             <div class="modal-body">
-                <iframe id="previewIframe" srcdoc="<html><head><title>Preview</title></head><body>Carregando prévia...</body></html>"></iframe>
+                <iframe id="previewIframe" srcdoc="<html><head><title>Preview</title><style>body{display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;color:#777;}</style></head><body>Carregando prévia...</body></html>"></iframe>
             </div>
         </div>
     </div>
