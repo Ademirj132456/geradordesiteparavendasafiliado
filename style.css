@@ -129,3 +129,59 @@ body { counter-reset: step-counter; }
     .modal-content { width: 95%; height: 85vh; } /* Ajusta modal no mobile */
     .modal-header h2 { font-size: 1.1em;}
 }
+
+/* Ajuste no contador de passo */
+.step h2::before {
+    width: 28px; height: 28px; font-size: 0.85em; margin-right: 12px;
+}
+
+/* Grid para inputs de redes sociais */
+.social-inputs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 2 colunas se couber */
+    gap: 15px 20px; /* Espaço vertical e horizontal */
+}
+.social-inputs-grid .form-group {
+    margin-bottom: 0; /* Remove margem extra dentro do grid */
+}
+
+/* Ajuste no grupo de botões Gerar/Preview */
+.generate-preview-section .button-group button {
+    flex-basis: 200px; /* Base para cálculo do flex-grow */
+}
+
+/* Ajuste no feedback de cópia */
+.copy-feedback {
+    transition: opacity 0.3s ease, color 0.3s ease; /* Adiciona transição de cor */
+}
+.copy-feedback.show { opacity: 1; }
+.copy-feedback.error { color: var(--tool-danger) !important; } /* Classe de erro */
+
+
+/* Estilos que serão INCLUÍDOS no código gerado (para referência) */
+/* .muralzao-footer { ... } */
+/* .muralzao-socials { ... } */
+/* .social-link { ... } */
+/* .social-link svg { ... } */
+
+/* Ajuste fino nos inputs da ferramenta */
+.form-group input[type="text"],
+.form-group input[type="url"],
+.form-group input[type="number"]{
+    font-size: 0.95em; /* Um pouco menor */
+}
+
+/* Estilo do modal um pouco mais refinado */
+.modal-content {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+.modal-header {
+    background-color: #fdfdfd;
+}
+.modal-close-button {
+     transition: color 0.2s ease;
+}
+.small-button {
+    font-size: 0.8em !important; /* Garante que fique pequeno */
+    padding: 4px 8px !important;
+}
