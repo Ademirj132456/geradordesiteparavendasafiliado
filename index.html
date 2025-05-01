@@ -3,138 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muralzão - Gerador de Coleção PRO V3</title>
+    <title>Muralzão - Gerador de Coleção PRO V7</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </head>
 <body>
+    <!-- Modal Inicial -->
+    <div id="initialModal" class="modal-overlay show">
+        <div class="modal-content small">
+            <div class="modal-header">
+                <h2>Bem-vindo(a) ao Gerador Muralzão! 👋</h2>
+                <button id="closeInitialModalButton" class="modal-close-button" aria-label="Fechar">×</button>
+            </div>
+            <div class="modal-body initial-modal-body">
+                <p>Crie sua página de achadinhos profissional para Google Sites em minutos!</p>
+                <p><strong>Prefere ver em vídeo?</strong> Assista nosso tutorial completo no YouTube:</p>
+                <a href="LINK_DO_SEU_VIDEO_YOUTUBE_AQUI" target="_blank" id="modalYoutubeButton" class="button youtube-button">🎬 Ver Guia em Vídeo</a>
+                <hr class="modal-divider">
+                <p>Ou siga o passo a passo aqui na página. Qualquer dúvida, o vídeo pode ajudar!</p>
+                <button id="continueToGeneratorButton" class="button primary-button">Continuar para o Gerador</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Aviso Campos Vazios -->
+    <div id="emptyFieldsModal" class="modal-overlay">
+         <div class="modal-content warning">
+            <div class="modal-header">
+                <h2>⚠️ Atenção: Campos Vazios!</h2>
+                <button id="closeEmptyFieldsModalButton" class="modal-close-button" aria-label="Fechar">×</button>
+            </div>
+            <div class="modal-body empty-fields-modal-body">
+                <p>Existem produtos com campos obrigatórios (*) não preenchidos ou vazios.</p>
+                <p>Por favor, <strong>preencha todos os campos</strong> marcados em vermelho ou <strong>remova os produtos</strong> que não deseja usar antes de gerar o código ou visualizar a prévia.</p>
+                <button id="okEmptyFieldsButton" class="button primary-button">Entendi</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Container Principal da Ferramenta -->
     <div class="main-container">
         <header class="tool-header">
             <h1>Gerador de Coleção Muralzão ✨</h1>
             <p>Crie sua página de achadinhos profissional para Google Sites!</p>
         </header>
 
+         <!-- Guia Rápido e Vídeo -->
+         <section class="step quick-guide-section">
+             <h2>Guia Rápido e Vídeo Tutorial</h2>
+             <div class="guide-video-container">
+                 <details class="quick-guide">
+                     <summary>📄 Mostrar/Ocultar Guia Rápido (Passo a Passo)</summary>
+                     <ol>
+                         <li><strong>Personalize a Página:</strong> Defina Título, Subtítulo e Cor Principal.</li>
+                         <li><strong>Suas Redes Sociais (Opcional):</strong> Adicione seus links.</li>
+                         <li><strong>Defina Quantidade:</strong> Digite nº de produtos e clique "Gerar Campos".</li>
+                         <li><strong>Preencha Produtos:</strong> Insira URL da imagem, Número (Ex: N°001), Nome e seu <strong>Link de Afiliado CORRETO</strong> (⚠️ essencial!). Use o botão "Remover" se desistir de um produto.</li>
+                         <li><strong>Visualize (Opcional):** Clique "Visualizar Prévia".</li>
+                         <li>**Gere o Código:** Clique "Gerar Código Final".</li>
+                         <li>**Use o Código:** Clique "Copiar Código" (para Google Sites) OU "Baixar Código" (arquivo .zip).</li>
+                         <li>**Publique:** Cole no Google Sites e publique!</li>
+                     </ol>
+                 </details>
+                 <div class="youtube-link-box">
+                     <p>Prefere um guia visual completo?</p>
+                     <a href="LINK_DO_SEU_VIDEO_YOUTUBE_AQUI" target="_blank" class="button youtube-button small-button">🎬 Ver Guia em Vídeo no YouTube</a>
+                 </div>
+             </div>
+         </section>
+
+        <!-- Passo 1: Personalizar -->
         <section class="step">
-            <h2>Passo 1: Personalize Sua Página</h2>
-            <!-- Título -->
+            <h2><span class="step-number">1</span>Personalize Sua Página</h2>
             <div class="form-group">
                 <label for="pageTitleInput">Título Principal:</label>
                 <div class="input-with-emoji">
-                    <input type="text" id="pageTitleInput" placeholder="Ex: Achados da Casa e Cia 🏡">
-                    <div class="emoji-palette" data-target-input="pageTitleInput">
-                        <span>💪</span> <span>🔥</span> <span>✨</span> <span>🚀</span> <span>✅</span> <span>👇</span> <span>🛒</span> <span>💰</span> <span>🏡</span> <span>💄</span> <span>🎉</span>
-                    </div>
-                </div>
-                <small>Clique nos emojis para adicionar.</small>
+                    <input type="text" id="pageTitleInput" placeholder="Ex: Achados do Marombeiro! 💪">
+                    <div class="emoji-palette" data-target-input="pageTitleInput"><span>💪</span><span>🔥</span><span>✨</span><span>🚀</span><span>✅</span><span>👇</span><span>🛒</span><span>💰</span><span>🏡</span><span>💄</span><span>🎉</span><span>💡</span><span>⭐</span><span>❤️</span></div>
+                </div> <small>Clique nos emojis para adicionar.</small>
             </div>
-            <!-- Descrição -->
             <div class="form-group">
                 <label for="pageDescInput">Subtítulo (Descrição curta):</label>
                  <div class="input-with-emoji">
-                    <input type="text" id="pageDescInput" placeholder="Ex: Os melhores achados com curadoria especial! 😉">
-                     <div class="emoji-palette" data-target-input="pageDescInput">
-                        <span>😉</span> <span>👀</span> <span>💯</span> <span>💡</span> <span>⭐</span> <span>🛍️</span> <span>❤️</span> <span>💸</span> <span>✔️</span>
-                    </div>
-                </div>
-                <small>Clique nos emojis para adicionar.</small>
+                    <input type="text" id="pageDescInput" placeholder="Ex: Sua seleção Monstra dos melhores achadinhos! 😉">
+                     <div class="emoji-palette" data-target-input="pageDescInput"><span>😉</span><span>👀</span><span>💯</span><span>✔️</span><span>🛍️</span><span>💸</span><span>🎁</span><span>🏠</span><span>😊</span><span>😃</span><span>👍</span></div>
+                 </div><small>Clique nos emojis para adicionar.</small>
             </div>
-            <!-- Cor -->
              <div class="form-group">
                 <label for="brandColorInput">Cor Principal (Botões, Números, Destaques):</label>
-                <div class="inline-group color-picker-group">
-                    <input type="color" id="brandColorPicker" value="#F58220" title="Selecionar Cor">
-                    <input type="text" id="brandColorInput" value="#F58220" placeholder="#RRGGBB">
-                </div>
-                 <small>Sugestões (clique ou digite o HEX):</small>
-                 <div id="color-suggestions" class="color-suggestions"></div>
+                <div class="inline-group color-picker-group"><input type="color" id="brandColorPicker" value="#F58220" title="Selecionar Cor"><input type="text" id="brandColorInput" value="#F58220" placeholder="#RRGGBB"></div>
+                 <small>Sugestões (clique ou digite o HEX):</small><div id="color-suggestions" class="color-suggestions"></div>
             </div>
         </section>
 
-        <!-- NOVA SEÇÃO: REDES SOCIAIS -->
+        <!-- Passo 2: Redes Sociais -->
         <section class="step">
-             <h2>Passo 2: Redes Sociais (Opcional)</h2>
-             <small>Preencha apenas as redes que deseja exibir no rodapé da sua página.</small>
+             <h2><span class="step-number">2</span>Suas Redes Sociais (Opcional)</h2>
+             <small>Links que aparecerão no rodapé da sua página gerada.</small>
              <div class="social-inputs-grid">
-                 <div class="form-group">
-                    <label for="socialInstagram">Instagram Link:</label>
-                    <input type="url" id="socialInstagram" placeholder="https://instagram.com/seu_usuario">
-                 </div>
-                 <div class="form-group">
-                    <label for="socialTiktok">TikTok Link:</label>
-                    <input type="url" id="socialTiktok" placeholder="https://tiktok.com/@seu_usuario">
-                 </div>
-                 <div class="form-group">
-                    <label for="socialFacebook">Facebook Link:</label>
-                    <input type="url" id="socialFacebook" placeholder="https://facebook.com/sua_pagina">
-                 </div>
-                 <div class="form-group">
-                    <label for="socialYoutube">YouTube Link:</label>
-                    <input type="url" id="socialYoutube" placeholder="https://youtube.com/seu_canal">
-                 </div>
-                 <div class="form-group">
-                    <label for="socialWhatsapp">WhatsApp Link (Ex: API):</label>
-                    <input type="url" id="socialWhatsapp" placeholder="https://api.whatsapp.com/send?phone=55...">
-                 </div>
-                 <div class="form-group">
-                     <label for="socialTelegram">Telegram Link:</label>
-                     <input type="url" id="socialTelegram" placeholder="https://t.me/seu_usuario_ou_grupo">
-                 </div>
+                 <div class="form-group"><label for="socialInstagram">Seu Instagram:</label><input type="url" id="socialInstagram" placeholder="https://instagram.com/seu_usuario"></div>
+                 <div class="form-group"><label for="socialTiktok">Seu TikTok:</label><input type="url" id="socialTiktok" placeholder="https://tiktok.com/@seu_usuario"></div>
+                 <div class="form-group"><label for="socialFacebook">Seu Facebook:</label><input type="url" id="socialFacebook" placeholder="https://facebook.com/sua_pagina"></div>
+                 <div class="form-group"><label for="socialYoutube">Seu YouTube:</label><input type="url" id="socialYoutube" placeholder="https://youtube.com/seu_canal"></div>
+                 <div class="form-group"><label for="socialWhatsapp">Seu WhatsApp (Link):</label><input type="url" id="socialWhatsapp" placeholder="https://wa.me/55..."></div>
+                 <div class="form-group"><label for="socialTelegram">Seu Telegram:</label><input type="url" id="socialTelegram" placeholder="https://t.me/seu_usuario"></div>
              </div>
         </section>
 
+        <!-- Passo 3: Quantidade -->
         <section class="step">
-            <h2>Passo 3: Quantos Produtos Adicionar?</h2>
-            <div class="form-group inline-group product-count-group">
-                <label for="productCountInput">Número de Produtos:</label>
-                <input type="number" id="productCountInput" min="0" max="50" value="0">
-                <button id="generateFieldsButton" class="button primary-button">Gerar Campos de Produto</button>
-            </div>
+            <h2><span class="step-number">3</span>Quantos Produtos Adicionar?</h2>
+            <div class="form-group inline-group product-count-group"><label for="productCountInput">Número de Produtos:</label><input type="number" id="productCountInput" min="0" max="50" value="0"><button id="generateFieldsButton" class="button primary-button">Gerar/Atualizar Campos</button></div>
+            <small>Se já preencheu alguns, seus dados serão mantidos.</small>
         </section>
 
+        <!-- Passo 4: Detalhes Produtos -->
         <section class="step">
-            <h2>Passo 4: Preencha os Detalhes dos Produtos</h2>
-            <div id="product-fields-container">
-                <p class="placeholder-text">Defina o número > 0 e clique em "Gerar Campos".</p>
-            </div>
+            <h2><span class="step-number">4</span>Preencha os Detalhes dos Produtos</h2>
+            <div class="form-group link-warning" style="display: none;"><strong>⚠️ Atenção:</strong> Use seus <strong>links de afiliado corretos</strong>! Links errados = sem comissão.</div>
+            <div id="product-fields-container"><p class="placeholder-text">Defina o número > 0 e clique em "Gerar/Atualizar Campos".</p></div>
         </section>
 
+        <!-- Passo 5: Ações Finais -->
         <section class="step generate-preview-section">
-             <h2>Passo 5: Visualize e Gere o Código</h2>
+             <h2><span class="step-number">5</span>Visualize e Gere o Código</h2>
              <div class="button-group">
-                <button id="previewButton" class="button secondary-button" disabled>👁️ Visualizar Prévia</button>
-                <button id="generateCodeButton" class="button generate-button" disabled>🚀 Gerar Código Final 🚀</button>
+                <button id="previewButton" class="button secondary-button" title="Veja como sua página ficará" disabled>👁️ Visualizar Prévia</button>
+                <button id="generateCodeButton" class="button generate-button" title="Gera o código final para copiar ou baixar" disabled>🚀 Gerar Código Final 🚀</button>
              </div>
         </section>
 
+        <!-- Passo 6: Output -->
         <section class="step output-section" id="outputSection" style="display: none;">
-            <h2>Passo 6: Copie e Cole no Google Sites!</h2>
-            <p>Seu código está pronto! Copie TODO o conteúdo abaixo e cole no "Incorporar Código" (< >) do seu editor do Google Sites.</p>
-            <textarea id="generatedCodeOutput" readonly rows="15" placeholder="Seu código aparecerá aqui..."></textarea>
-            <button id="copyCodeButton" class="button copy-button" disabled>📋 Copiar Código</button>
+            <h2><span class="step-number">6</span>Copie, Cole ou Baixe!</h2>
+            <p>Seu código está pronto! Escolha uma opção:</p>
+            <textarea id="generatedCodeOutput" readonly rows="15" placeholder="Seu código aparecerá aqui..." aria-label="Código HTML Gerado"></textarea>
+            <div class="button-group output-buttons">
+                <button id="copyCodeButton" class="button copy-button" title="Copiar o código para colar no Google Sites" disabled>📋 Copiar Código (Google Sites)</button>
+                <button id="downloadCodeButton" class="button download-button" title="Baixar um arquivo .zip com site/vendas.html" disabled>💾 Baixar Código (.zip)</button>
+            </div>
             <div id="copyFeedback" class="copy-feedback"></div>
         </section>
 
          <footer class="tool-footer">
             <p>Ferramenta Geradora Muralzão</p>
+            <div class="muralzao-promo">
+                 <span>Gostou da ferramenta? Siga o Muralzão e compartilhe!</span>
+                 <div class="muralzao-social-links">
+                     <a href="LINK_INSTA_MURALZAO" target="_blank" title="Instagram Muralzão">I</a>
+                     <a href="LINK_TIKTOK_MURALZAO" target="_blank" title="TikTok Muralzão">T</a>
+                     <a href="LINK_YOUTUBE_MURALZAO" target="_blank" title="YouTube Muralzão">Y</a>
+                 </div>
+            </div>
         </footer>
     </div>
 
-    <!-- Modal de Visualização Prévia -->
+    <!-- Modal Preview -->
     <div id="previewModal" class="modal-overlay" style="display: none;">
-        <div class="modal-content large">
-            <div class="modal-header">
-                <h2>Visualização Prévia</h2>
-                <div>
-                    <button id="openPreviewNewTabButton" class="button secondary-button small-button" title="Abrir em nova aba (pode ser bloqueado)">Nova Aba ↗</button>
-                    <button id="closePreviewButton" class="modal-close-button" aria-label="Fechar pré-visualização">×</button>
-                </div>
-            </div>
-            <div class="modal-body">
-                <iframe id="previewIframe" srcdoc="<html><head><meta charset='UTF-8'><title>Preview</title></head><body>Carregando...</body></html>"></iframe>
-            </div>
-        </div>
+        <div class="modal-content large"><div class="modal-header"><h2>Visualização Prévia</h2><div><button id="openPreviewNewTabButton" class="button secondary-button small-button" title="Abrir em nova aba">Nova Aba ↗</button><button id="closePreviewButton" class="modal-close-button" aria-label="Fechar pré-visualização">×</button></div></div><div class="modal-body iframe-container"><iframe id="previewIframe" sandbox="allow-scripts allow-same-origin" srcdoc="<html><head><meta charset='UTF-8'></head><body></body></html>"></iframe></div></div>
     </div>
 
     <script src="script.js"></script>
