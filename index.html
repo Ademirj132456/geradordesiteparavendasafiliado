@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muralzão - Gerador de Coleção PRO V7</title>
+    <title>Muralzão - Gerador de Coleção PRO V7 - Emoji Carousel</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,7 +44,6 @@
         </div>
     </div>
 
-
     <!-- Container Principal da Ferramenta -->
     <div class="main-container">
         <header class="tool-header">
@@ -59,11 +58,11 @@
                  <details class="quick-guide">
                      <summary>📄 Mostrar/Ocultar Guia Rápido (Passo a Passo)</summary>
                      <ol>
-                         <li><strong>Personalize a Página:</strong> Defina Título, Subtítulo e Cor Principal.</li>
-                         <li><strong>Suas Redes Sociais (Opcional):</strong> Adicione seus links.</li>
-                         <li><strong>Defina Quantidade:</strong> Digite nº de produtos e clique "Gerar Campos".</li>
-                         <li><strong>Preencha Produtos:</strong> Insira URL da imagem, Número (Ex: N°001), Nome e seu <strong>Link de Afiliado CORRETO</strong> (⚠️ essencial!). Use o botão "Remover" se desistir de um produto.</li>
-                         <li><strong>Visualize (Opcional):** Clique "Visualizar Prévia".</li>
+                         <li><strong>Personalize a Página:</strong> Defina Título, Subtítulo e Cor Principal. Use os emojis se quiser!</li>
+                         <li><strong>Suas Redes Sociais (Opcional):** Adicione seus links.</li>
+                         <li><strong>Defina Quantidade:** Digite nº de produtos e clique "Gerar Campos".</li>
+                         <li><strong>Preencha Produtos:** Insira URL da imagem, Número (Ex: N°001), Nome e seu <strong>Link de Afiliado CORRETO</strong> (⚠️ essencial!). Use o botão "Remover" se desistir de um produto.</li>
+                         <li>**Visualize (Opcional):** Clique "Visualizar Prévia".</li>
                          <li>**Gere o Código:** Clique "Gerar Código Final".</li>
                          <li>**Use o Código:** Clique "Copiar Código" (para Google Sites) OU "Baixar Código" (arquivo .zip).</li>
                          <li>**Publique:** Cole no Google Sites e publique!</li>
@@ -76,23 +75,44 @@
              </div>
          </section>
 
-        <!-- Passo 1: Personalizar -->
+        <!-- Passo 1: Personalizar Página -->
         <section class="step">
             <h2><span class="step-number">1</span>Personalize Sua Página</h2>
+            <!-- Título com Emoji Carousel -->
             <div class="form-group">
                 <label for="pageTitleInput">Título Principal:</label>
-                <div class="input-with-emoji">
-                    <input type="text" id="pageTitleInput" placeholder="Ex: Achados do Marombeiro! 💪">
-                    <div class="emoji-palette" data-target-input="pageTitleInput"><span>💪</span><span>🔥</span><span>✨</span><span>🚀</span><span>✅</span><span>👇</span><span>🛒</span><span>💰</span><span>🏡</span><span>💄</span><span>🎉</span><span>💡</span><span>⭐</span><span>❤️</span></div>
-                </div> <small>Clique nos emojis para adicionar.</small>
+                <div class="input-with-emoji-carousel">
+                    <input type="text" id="pageTitleInput" placeholder="Ex: Achados do Marombeiro!">
+                    <div class="emoji-carousel-container">
+                        <button class="emoji-nav prev" data-target-strip="title-emoji-strip" aria-label="Emoji anterior" disabled><</button>
+                        <div class="emoji-window">
+                            <div class="emoji-strip" id="title-emoji-strip" data-target-input="pageTitleInput">
+                                <span>💪</span> <span>🔥</span> <span>✨</span> <span>🚀</span> <span>✅</span> <span>👇</span> <span>🛒</span> <span>💰</span> <span>🏡</span> <span>💄</span> <span>🎉</span> <span>💡</span> <span>⭐</span> <span>❤️</span> <span>💯</span> <span>👀</span> <span>😉</span>
+                            </div>
+                        </div>
+                        <button class="emoji-nav next" data-target-strip="title-emoji-strip" aria-label="Próximo emoji">></button>
+                    </div>
+                </div>
+                <small>Use as setas e clique nos emojis para adicionar ao título.</small>
             </div>
+             <!-- Subtítulo com Emoji Carousel -->
             <div class="form-group">
                 <label for="pageDescInput">Subtítulo (Descrição curta):</label>
-                 <div class="input-with-emoji">
-                    <input type="text" id="pageDescInput" placeholder="Ex: Sua seleção Monstra dos melhores achadinhos! 😉">
-                     <div class="emoji-palette" data-target-input="pageDescInput"><span>😉</span><span>👀</span><span>💯</span><span>✔️</span><span>🛍️</span><span>💸</span><span>🎁</span><span>🏠</span><span>😊</span><span>😃</span><span>👍</span></div>
-                 </div><small>Clique nos emojis para adicionar.</small>
+                 <div class="input-with-emoji-carousel">
+                    <input type="text" id="pageDescInput" placeholder="Ex: Sua seleção Monstra dos melhores achadinhos!">
+                    <div class="emoji-carousel-container">
+                         <button class="emoji-nav prev" data-target-strip="desc-emoji-strip" aria-label="Emoji anterior" disabled><</button>
+                         <div class="emoji-window">
+                             <div class="emoji-strip" id="desc-emoji-strip" data-target-input="pageDescInput">
+                                 <span>😉</span> <span>👀</span> <span>💯</span> <span>✔️</span> <span>🛍️</span> <span>💸</span> <span>🎁</span> <span>🏠</span> <span>😊</span> <span>😃</span> <span>👍</span> <span>💡</span> <span>⭐</span> <span>❤️</span> <span>✅</span> <span>👇</span>
+                             </div>
+                         </div>
+                         <button class="emoji-nav next" data-target-strip="desc-emoji-strip" aria-label="Próximo emoji">></button>
+                    </div>
+                 </div>
+                 <small>Use as setas e clique nos emojis para adicionar ao subtítulo.</small>
             </div>
+            <!-- Cor -->
              <div class="form-group">
                 <label for="brandColorInput">Cor Principal (Botões, Números, Destaques):</label>
                 <div class="inline-group color-picker-group"><input type="color" id="brandColorPicker" value="#F58220" title="Selecionar Cor"><input type="text" id="brandColorInput" value="#F58220" placeholder="#RRGGBB"></div>
@@ -151,14 +171,14 @@
 
          <footer class="tool-footer">
             <p>Ferramenta Geradora Muralzão</p>
-            <div class="muralzao-promo">
+             <div class="muralzao-promo">
                  <span>Gostou da ferramenta? Siga o Muralzão e compartilhe!</span>
                  <div class="muralzao-social-links">
                      <a href="LINK_INSTA_MURALZAO" target="_blank" title="Instagram Muralzão">I</a>
                      <a href="LINK_TIKTOK_MURALZAO" target="_blank" title="TikTok Muralzão">T</a>
                      <a href="LINK_YOUTUBE_MURALZAO" target="_blank" title="YouTube Muralzão">Y</a>
                  </div>
-            </div>
+             </div>
         </footer>
     </div>
 
