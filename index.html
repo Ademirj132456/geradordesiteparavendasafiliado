@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muralzão - Gerador de Coleção PRO V7 - Emoji Carousel</title>
+    <title>Muralzão - Gerador de Coleção PRO V8</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7401617332401724"
-     crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Modal Inicial -->
@@ -46,7 +44,7 @@
         </div>
     </div>
 
-    <!-- Container Principal da Ferramenta -->
+    <!-- Container Principal -->
     <div class="main-container">
         <header class="tool-header">
             <h1>Gerador de Coleção Muralzão ✨</h1>
@@ -60,13 +58,13 @@
                  <details class="quick-guide">
                      <summary>📄 Mostrar/Ocultar Guia Rápido (Passo a Passo)</summary>
                      <ol>
-                         <li><strong>Personalize a Página:</strong> Defina Título, Subtítulo e Cor Principal. Use os emojis se quiser!</li>
-                         <li><strong>Suas Redes Sociais (Opcional):** Adicione seus links.</li>
-                         <li><strong>Defina Quantidade:** Digite nº de produtos e clique "Gerar Campos".</li>
-                         <li><strong>Preencha Produtos:** Insira URL da imagem, Número (Ex: N°001), Nome e seu <strong>Link de Afiliado CORRETO</strong> (⚠️ essencial!). Use o botão "Remover" se desistir de um produto.</li>
-                         <li>**Visualize (Opcional):** Clique "Visualizar Prévia".</li>
+                         <li><strong>Personalize a Página:</strong> Título, Subtítulo, Cor Principal. Use emojis se quiser!</li>
+                         <li><strong>Suas Redes Sociais (Opcional):</strong> Links para o rodapé da página gerada.</li>
+                         <li><strong>Defina Quantidade:** Digite nº de produtos e clique "Gerar/Atualizar Campos".</li>
+                         <li><strong>Preencha Produtos:** URL imagem, Número (Ex: N°001), Nome e <strong>Link Afiliado CORRETO</strong> (⚠️ essencial!). Use "Remover" se necessário.</li>
+                         <li>**Visualize (Opcional):** Use "Visualizar Prévia".</li>
                          <li>**Gere o Código:** Clique "Gerar Código Final".</li>
-                         <li>**Use o Código:** Clique "Copiar Código" (para Google Sites) OU "Baixar Código" (arquivo .zip).</li>
+                         <li>**Use o Código:** Clique "Copiar Código" (para Google Sites) OU "Baixar Código" (gera pasta `site` com `index.html`).</li>
                          <li>**Publique:** Cole no Google Sites e publique!</li>
                      </ol>
                  </details>
@@ -77,52 +75,15 @@
              </div>
          </section>
 
-        <!-- Passo 1: Personalizar Página -->
+        <!-- Passo 1 -->
         <section class="step">
             <h2><span class="step-number">1</span>Personalize Sua Página</h2>
-            <!-- Título com Emoji Carousel -->
-            <div class="form-group">
-                <label for="pageTitleInput">Título Principal:</label>
-                <div class="input-with-emoji-carousel">
-                    <input type="text" id="pageTitleInput" placeholder="Ex: Achados do Marombeiro!">
-                    <div class="emoji-carousel-container">
-                        <button class="emoji-nav prev" data-target-strip="title-emoji-strip" aria-label="Emoji anterior" disabled><</button>
-                        <div class="emoji-window">
-                            <div class="emoji-strip" id="title-emoji-strip" data-target-input="pageTitleInput">
-                                <span>💪</span> <span>🔥</span> <span>✨</span> <span>🚀</span> <span>✅</span> <span>👇</span> <span>🛒</span> <span>💰</span> <span>🏡</span> <span>💄</span> <span>🎉</span> <span>💡</span> <span>⭐</span> <span>❤️</span> <span>💯</span> <span>👀</span> <span>😉</span>
-                            </div>
-                        </div>
-                        <button class="emoji-nav next" data-target-strip="title-emoji-strip" aria-label="Próximo emoji">></button>
-                    </div>
-                </div>
-                <small>Use as setas e clique nos emojis para adicionar ao título.</small>
-            </div>
-             <!-- Subtítulo com Emoji Carousel -->
-            <div class="form-group">
-                <label for="pageDescInput">Subtítulo (Descrição curta):</label>
-                 <div class="input-with-emoji-carousel">
-                    <input type="text" id="pageDescInput" placeholder="Ex: Sua seleção Monstra dos melhores achadinhos!">
-                    <div class="emoji-carousel-container">
-                         <button class="emoji-nav prev" data-target-strip="desc-emoji-strip" aria-label="Emoji anterior" disabled><</button>
-                         <div class="emoji-window">
-                             <div class="emoji-strip" id="desc-emoji-strip" data-target-input="pageDescInput">
-                                 <span>😉</span> <span>👀</span> <span>💯</span> <span>✔️</span> <span>🛍️</span> <span>💸</span> <span>🎁</span> <span>🏠</span> <span>😊</span> <span>😃</span> <span>👍</span> <span>💡</span> <span>⭐</span> <span>❤️</span> <span>✅</span> <span>👇</span>
-                             </div>
-                         </div>
-                         <button class="emoji-nav next" data-target-strip="desc-emoji-strip" aria-label="Próximo emoji">></button>
-                    </div>
-                 </div>
-                 <small>Use as setas e clique nos emojis para adicionar ao subtítulo.</small>
-            </div>
-            <!-- Cor -->
-             <div class="form-group">
-                <label for="brandColorInput">Cor Principal (Botões, Números, Destaques):</label>
-                <div class="inline-group color-picker-group"><input type="color" id="brandColorPicker" value="#F58220" title="Selecionar Cor"><input type="text" id="brandColorInput" value="#F58220" placeholder="#RRGGBB"></div>
-                 <small>Sugestões (clique ou digite o HEX):</small><div id="color-suggestions" class="color-suggestions"></div>
-            </div>
+            <div class="form-group"> <label for="pageTitleInput">Título Principal:</label> <div class="input-with-emoji-carousel"> <input type="text" id="pageTitleInput" placeholder="Ex: Achados Top! 🔥"> <div class="emoji-carousel-container"> <button class="emoji-nav prev" data-target-strip="title-emoji-strip" aria-label="Emoji anterior" disabled><</button> <div class="emoji-window"> <div class="emoji-strip" id="title-emoji-strip" data-target-input="pageTitleInput"> <span>💪</span> <span>🔥</span> <span>✨</span> <span>🚀</span> <span>✅</span> <span>👇</span> <span>🛒</span> <span>💰</span> <span>🏡</span> <span>💄</span> <span>🎉</span> <span>💡</span> <span>⭐</span> <span>❤️</span> <span>💯</span> <span>👀</span> <span>😉</span> </div> </div> <button class="emoji-nav next" data-target-strip="title-emoji-strip" aria-label="Próximo emoji">></button> </div> </div> <small>Use as setas e clique nos emojis.</small> </div>
+            <div class="form-group"> <label for="pageDescInput">Subtítulo:</label> <div class="input-with-emoji-carousel"> <input type="text" id="pageDescInput" placeholder="Ex: Os melhores achadinhos pra você! 😉"> <div class="emoji-carousel-container"> <button class="emoji-nav prev" data-target-strip="desc-emoji-strip" aria-label="Emoji anterior" disabled><</button> <div class="emoji-window"> <div class="emoji-strip" id="desc-emoji-strip" data-target-input="pageDescInput"> <span>😉</span> <span>👀</span> <span>💯</span> <span>✔️</span> <span>🛍️</span> <span>💸</span> <span>🎁</span> <span>🏠</span> <span>😊</span> <span>😃</span> <span>👍</span> <span>💡</span> <span>⭐</span> <span>❤️</span> <span>✅</span> <span>👇</span> </div> </div> <button class="emoji-nav next" data-target-strip="desc-emoji-strip" aria-label="Próximo emoji">></button> </div> </div> <small>Use as setas e clique nos emojis.</small> </div>
+            <div class="form-group"> <label for="brandColorInput">Cor Principal:</label> <div class="inline-group color-picker-group"> <input type="color" id="brandColorPicker" value="#F58220" title="Selecionar Cor"> <input type="text" id="brandColorInput" value="#F58220" placeholder="#RRGGBB"> </div> <small>Sugestões (clique ou digite o HEX):</small> <div id="color-suggestions" class="color-suggestions"></div> </div>
         </section>
 
-        <!-- Passo 2: Redes Sociais -->
+        <!-- Passo 2 -->
         <section class="step">
              <h2><span class="step-number">2</span>Suas Redes Sociais (Opcional)</h2>
              <small>Links que aparecerão no rodapé da sua página gerada.</small>
@@ -136,21 +97,21 @@
              </div>
         </section>
 
-        <!-- Passo 3: Quantidade -->
+        <!-- Passo 3 -->
         <section class="step">
             <h2><span class="step-number">3</span>Quantos Produtos Adicionar?</h2>
             <div class="form-group inline-group product-count-group"><label for="productCountInput">Número de Produtos:</label><input type="number" id="productCountInput" min="0" max="50" value="0"><button id="generateFieldsButton" class="button primary-button">Gerar/Atualizar Campos</button></div>
-            <small>Se já preencheu alguns, seus dados serão mantidos.</small>
+            <small>Seus dados são mantidos ao alterar a quantidade.</small>
         </section>
 
-        <!-- Passo 4: Detalhes Produtos -->
+        <!-- Passo 4 -->
         <section class="step">
             <h2><span class="step-number">4</span>Preencha os Detalhes dos Produtos</h2>
             <div class="form-group link-warning" style="display: none;"><strong>⚠️ Atenção:</strong> Use seus <strong>links de afiliado corretos</strong>! Links errados = sem comissão.</div>
             <div id="product-fields-container"><p class="placeholder-text">Defina o número > 0 e clique em "Gerar/Atualizar Campos".</p></div>
         </section>
 
-        <!-- Passo 5: Ações Finais -->
+        <!-- Passo 5 -->
         <section class="step generate-preview-section">
              <h2><span class="step-number">5</span>Visualize e Gere o Código</h2>
              <div class="button-group">
@@ -159,26 +120,27 @@
              </div>
         </section>
 
-        <!-- Passo 6: Output -->
+        <!-- Passo 6 -->
         <section class="step output-section" id="outputSection" style="display: none;">
             <h2><span class="step-number">6</span>Copie, Cole ou Baixe!</h2>
             <p>Seu código está pronto! Escolha uma opção:</p>
             <textarea id="generatedCodeOutput" readonly rows="15" placeholder="Seu código aparecerá aqui..." aria-label="Código HTML Gerado"></textarea>
             <div class="button-group output-buttons">
                 <button id="copyCodeButton" class="button copy-button" title="Copiar o código para colar no Google Sites" disabled>📋 Copiar Código (Google Sites)</button>
-                <button id="downloadCodeButton" class="button download-button" title="Baixar um arquivo .zip com site/vendas.html" disabled>💾 Baixar Código (.zip)</button>
+                <button id="downloadCodeButton" class="button download-button" title="Baixar pasta 'site' com 'index.html'" disabled>💾 Baixar Código (.zip)</button>
             </div>
             <div id="copyFeedback" class="copy-feedback"></div>
         </section>
 
+         <!-- Rodapé da Ferramenta com Ícones -->
          <footer class="tool-footer">
             <p>Ferramenta Geradora Muralzão</p>
              <div class="muralzao-promo">
-                 <span>Gostou da ferramenta? Siga o Muralzão e compartilhe!</span>
-                 <div class="muralzao-social-links">
-                     <a href="LINK_INSTA_MURALZAO" target="_blank" title="Instagram Muralzão">I</a>
-                     <a href="LINK_TIKTOK_MURALZAO" target="_blank" title="TikTok Muralzão">T</a>
-                     <a href="LINK_YOUTUBE_MURALZAO" target="_blank" title="YouTube Muralzão">Y</a>
+                 <span>Gostou da ferramenta? Siga e compartilhe o Muralzão!</span>
+                 <div class="muralzao-social-links tool-socials"> <!-- Classe específica para estilizar diferente se necessário -->
+                     <a href="LINK_INSTA_MURALZAO" target="_blank" rel="noopener noreferrer" title="Instagram Muralzão"><svg fill="currentColor" width="24" height="24" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zM8 1.442a6.6 6.6 0 0 1 3.232.046c.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.598-.92c-.11-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.231s.008-2.389.046-3.232c.035-.78.166-1.204.275-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.843-.038 1.096-.047 3.232-.047zM8 4.905a3.095 3.095 0 1 0 0 6.19 3.095 3.095 0 0 0 0-6.19zm0 5.072a1.977 1.977 0 1 1 0-3.954 1.977 1.977 0 0 1 0 3.954zm5.853-4.012a.97.97 0 1 0 0-1.94.97.97 0 0 0 0 1.94z"/></svg></a>
+                     <a href="LINK_TIKTOK_MURALZAO" target="_blank" rel="noopener noreferrer" title="TikTok Muralzão"><svg fill="currentColor" width="24" height="24" viewBox="0 0 16 16"><path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2.372a3 3 0 1 0 0 5.728V5a5 5 0 1 1 5-5z"/></svg></a>
+                     <a href="LINK_YOUTUBE_MURALZAO" target="_blank" rel="noopener noreferrer" title="YouTube Muralzão"><svg fill="currentColor" width="24" height="24" viewBox="0 0 16 16"><path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.022.26-.01.104c-.048.519-.119 1.023-.22 1.402a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.042c-.59-.001-4.948-.024-6.068-.335a2.01 2.01 0 0 1-1.415-1.419c-.1-.38-.172-.883-.22-1.402l-.01-.104-.022-.26-.008-.104c-.065-.914-.073-1.77-.074-1.957v-.075c.001-.194.01-1.108.082-2.06l.008-.105.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42C1.948 2.022 6.356 2 7.006 2h.045zM6.4 5.209v5.584l4.493-2.79z"/></svg></a>
                  </div>
              </div>
         </footer>
